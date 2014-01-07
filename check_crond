@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #
-# Simple script to check status of crond
-#
+# Simple Nagios plugin to check status of crond
+#  Executed via NRPE 
 
 # Path to Crond PID file
 
@@ -13,7 +13,7 @@ if [ -e $pidfile ] ; then
 
         if sudo kill -0 $pid  2> /dev/null ;then
 
-               echo "crond is running : pid $pid : OK"
+               echo "CROND OK: pid $pid running"
                exit 0
 
         else
